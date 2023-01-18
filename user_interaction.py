@@ -25,11 +25,11 @@ def creating_files():
     while True:
         number_of_vacancies = input('Введите количество вакансий для записи в файл: [100] ')
         if number_of_vacancies == '':
-            area().vacancies_count = 100
+            area.vacancies_count = 100
             break
         else:
             if number_of_vacancies.isdigit():
-                area().vacancies_count = int(number_of_vacancies)
+                area.vacancies_count = int(number_of_vacancies)
                 break
             else:
                 print('Введены некорректные данные. Повторите ввод.')

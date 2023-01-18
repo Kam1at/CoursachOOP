@@ -62,11 +62,11 @@ class Engine(ABC):
         #         self.vacancies_count = json_file.get('found')
         while self.per_page * page <= self.vacancies_count:
             response = requests.get(url=url + f'&page={page}', headers=headers)
-            page += 1
             if response.status_code == 200:
                 json_file = response.json()
                 result += json_file.get(get_vacancies)
-                print('vacancy')
+                print('Страница: ', page)
+                page += 1
         create_file = self.get_connector(self.json_file_name)
         create_file.insert(result)
         return len(result)
